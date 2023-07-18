@@ -1,7 +1,7 @@
-const humanparser = require('humanparser');
+import humanparser from 'humanparser';
 
 const getAliases = (nameStr) => {
-  let name = humanparser(nameStr);
+  let name = humanparser.parseName(nameStr);
   /*
     {
         salutation: 'Mr.',
@@ -12,10 +12,10 @@ const getAliases = (nameStr) => {
         fullName: 'Mr. William R. Hearst, III'
     }
   */
-  [
+  return [
     name.fullName,
     [name.firstName, name.lastName].join(' '),
-  ]
+  ];
 }
 
 export default getAliases;
