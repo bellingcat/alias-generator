@@ -1,0 +1,11 @@
+{
+  "name": "alias-generator",
+  "version": "1.0.0",
+  "description": "Parse a human name and generate a list of possible variants",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
