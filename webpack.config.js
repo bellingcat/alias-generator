@@ -1,17 +1,8 @@
 const path = require('path');
 
-module.exports = {
+const commonConfig = {
     mode: 'production',
     entry: './src/index.js',
-    target: 'web',
-    output: {
-      path: path.resolve('dist'),
-      filename: 'index.js',
-      library: {
-        name: 'Alias',
-        type: 'var'
-      },
-    },
     module: {
       rules: [
         {
@@ -24,3 +15,27 @@ module.exports = {
       extensions: ['.js'],
     },
 };
+
+const webConfig = {
+    target: 'web',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'index.js',
+      library: {
+        name: 'Alias',
+        type: 'var'
+      },
+    },
+    ...commonConfig
+};
+const nodeConfig = {
+    target: 'node',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'index.node.js',
+      libraryTarget: 'commonjs2',
+    },
+    ...commonConfig
+};
+
+module.exports = [webConfig, nodeConfig];
