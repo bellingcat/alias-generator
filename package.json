@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Parse a human name and generate a list of possible variants",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js"
   },
   "author": "",
   "license": "MIT",

@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 const commonConfig = {
     mode: 'production',
@@ -38,4 +38,4 @@ const nodeConfig = {
     ...commonConfig
 };
 
-module.exports = [webConfig, nodeConfig];
+export default [webConfig, nodeConfig];
