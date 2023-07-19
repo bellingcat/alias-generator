@@ -1,6 +1,15 @@
 import path from 'path';
 
-const commonConfig = {
+const config = {
+    target: 'web',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'alias.js',
+      library: {
+        name: 'Alias',
+        type: 'var'
+      },
+    },
     mode: 'production',
     entry: './src/index.js',
     module: {
@@ -16,26 +25,4 @@ const commonConfig = {
     },
 };
 
-const webConfig = {
-    target: 'web',
-    output: {
-      path: path.resolve('dist'),
-      filename: 'index.js',
-      library: {
-        name: 'Alias',
-        type: 'var'
-      },
-    },
-    ...commonConfig
-};
-const nodeConfig = {
-    target: 'node',
-    output: {
-      path: path.resolve('dist'),
-      filename: 'index.node.js',
-      libraryTarget: 'commonjs2',
-    },
-    ...commonConfig
-};
-
-export default [webConfig, nodeConfig];
+export default config;
