@@ -20,37 +20,40 @@ const getAliases = (nameStr) => {
   name.middleInitial = getMiddleInitial(name);
   name.firstInitial = getFirstInitial(name);
 
-  /*
-    {
-        salutation: 'Mr.',
-        firstName: 'William',
-        suffix: 'III',
-        lastName: 'Hearst',
-        middleName: 'R.',
-        fullName: 'Mr. William R. Hearst, III'
-    }
-  */
   let results = [
+    // John Doe
     [name.firstName, name.lastName].join(' '),
+
+    // Doe, John
     [name.lastName, name.firstName].join(', '),
   ];
   if (name.middleName) {
     results.push(
+      // John James Doe
       [name.firstName, name.middleName, name.lastName].join(' '),
+
+      // Doe, John James
       [name.lastName, [name.firstName, name.middleName].join(' ')].join(', ') ,
     );
   }
   if (name.middleInitial) {
     results.push(
+      // John J Doe
       [name.firstName, name.middleInitial, name.lastName].join(' '),
-      [name.lastName, [name.firstName, name.middleInitial].join(' ')].join(', ') ,
+
+      // Doe, John J
+      [name.lastName, [name.firstName, name.middleInitial].join(' ')].join(', '),
     );
   }
 
   if (name.middleInitial && name.middleInitial) {
     results.push(
-      [name.firstInitial, name.middleInitial, name.lastName].join(' '),  // J P Heije
-      [(name.firstInitial+name.middleInitial), name.lastName].join(' '), // JP Heije
+
+      // J J Doe
+      [name.firstInitial, name.middleInitial, name.lastName].join(' '),
+
+      // JJ Doe
+      [(name.firstInitial+name.middleInitial), name.lastName].join(' '),
     );
   }
   return results;
