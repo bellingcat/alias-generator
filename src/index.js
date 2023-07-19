@@ -46,7 +46,21 @@ const getAliases = (nameStr) => {
     );
   }
 
-  if (name.middleInitial && name.middleInitial) {
+  if (name.firstInitial) {
+    results.push(
+
+      // J Doe
+      [name.firstInitial, name.lastName].join(' '),
+    );
+  }
+  if (name.firstInitial && name.middleName) {
+    results.push(
+
+      // J James Doe
+      [name.firstInitial, name.middleName, name.lastName].join(' '),
+    );
+  }
+  if (name.firstInitial && name.middleInitial) {
     results.push(
 
       // J J Doe
@@ -56,6 +70,7 @@ const getAliases = (nameStr) => {
       [(name.firstInitial+name.middleInitial), name.lastName].join(' '),
     );
   }
+  // TODO: shortening tussenvoegsel in Dutch: van der Laan => vd Laan
   return results;
 }
 
