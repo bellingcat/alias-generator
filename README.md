@@ -56,6 +56,8 @@ Example: Mike for Michael, Bill for William, Bob for Robert in the West. Katya f
 
 **Marriage** may result in surname changes, hyphenation or combination of one's original name(s).
 
+**Tussenvoegsels** in Dutch names such as "van der Laan" may be abbreviated "v.d. Laan"
+
 
 ## Possibly Helpful Libraries
 * https://nameparser.readthedocs.io/en/latest/ (python)
