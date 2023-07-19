@@ -4,11 +4,21 @@ Node module to generate likely aliases for a given human name.
 
 ## Usage
 
+In node
 ```
 import getAliases from '../src/index.js';
 
 let list = getAliases("William Randall Hearst");
 console.log(list);
+```
+
+In the browser
+```
+<script src="node_modules/alias-generator/dist/main.js"></script>
+<script>
+
+	let list = Alias.getAliases("William Randall Hearst");
+	console.log(list);
 ```
 
 Output:

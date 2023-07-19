@@ -5,10 +5,7 @@ const config = {
     output: {
       path: path.resolve('dist'),
       filename: 'main.js',
-      library: {
-        name: 'Alias',
-        type: 'var'
-      },
+      library: 'Alias'
     },
     mode: 'production',
     entry: './src/index.js',

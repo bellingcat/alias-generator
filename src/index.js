@@ -15,7 +15,7 @@ const getFirstInitial = (nameObj) => {
   return nameObj.firstName[0].toUpperCase();
 }
 
-const getAliases = (nameStr) => {
+export function getAliases(nameStr) {
   let name = humanparser.parseName(nameStr);
   name.middleInitial = getMiddleInitial(name);
   name.firstInitial = getFirstInitial(name);
@@ -73,5 +73,3 @@ const getAliases = (nameStr) => {
   // TODO: shortening tussenvoegsel in Dutch: van der Laan => vd Laan
   return results;
 }
-
-export default getAliases;
