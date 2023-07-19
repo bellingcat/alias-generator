@@ -7,10 +7,18 @@ const getMiddleInitial = (nameObj) => {
 
   return nameObj.middleName[0].toUpperCase();
 }
+const getFirstInitial = (nameObj) => {
+  if (!nameObj.firstName || typeof nameObj.firstName !== 'string') {
+    return null;
+  }
+
+  return nameObj.firstName[0].toUpperCase();
+}
 
 const getAliases = (nameStr) => {
   let name = humanparser.parseName(nameStr);
   name.middleInitial = getMiddleInitial(name);
+  name.firstInitial = getFirstInitial(name);
 
   /*
     {
@@ -36,6 +44,13 @@ const getAliases = (nameStr) => {
     results.push(
       [name.firstName, name.middleInitial, name.lastName].join(' '),
       [name.lastName, [name.firstName, name.middleInitial].join(' ')].join(', ') ,
+    );
+  }
+
+  if (name.middleInitial && name.middleInitial) {
+    results.push(
+      [name.firstInitial, name.middleInitial, name.lastName].join(' '),  // J P Heije
+      [(name.firstInitial+name.middleInitial), name.lastName].join(' '), // JP Heije
     );
   }
   return results;
