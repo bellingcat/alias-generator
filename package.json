@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "test": "node test/index.js"
   },
-  "author": "",
+  "author": "Stichting Bellingcat",
   "license": "MIT",
   "dependencies": {
     "humanparser": "^2.7.0"
