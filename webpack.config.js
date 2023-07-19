@@ -4,7 +4,7 @@ const config = {
     target: 'web',
     output: {
       path: path.resolve('dist'),
-      filename: 'alias.js',
+      filename: 'main.js',
       library: {
         name: 'Alias',
         type: 'var'
