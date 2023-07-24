@@ -6,18 +6,18 @@ Node module to generate likely aliases for a given human name.
 
 In node
 ```
-import getAliases from '../src/index.js';
+import getAliases from '@bellingcat/alias-generator';
 
-let list = getAliases("William Randall Hearst");
+let list = getAliases("William Randolph Hearst");
 console.log(list);
 ```
 
 In the browser
 ```
-<script src="node_modules/@bellingcat/alias-generator/dist/main.js"></script>
+<script src="node_modules/@bellingcat/alias-generator/dist/browser.js"></script>
 <script>
 
-  let list = Alias.getAliases("William Randall Hearst");
+  let list = Alias.getAliases("William Randolph Hearst");
   console.log(list);
 
 </script>
@@ -29,12 +29,12 @@ Output:
 [
   'William Hearst',
   'Hearst, William',
-  'William Randall Hearst',
-  'Hearst, William Randall',
+  'William Randolph Hearst',
+  'Hearst, William Randolph',
   'William R Hearst',
   'Hearst, William R',
   'W Hearst',
-  'W Randall Hearst',
+  'W Randolph Hearst',
   'W R Hearst',
   'WR Hearst'
 ]

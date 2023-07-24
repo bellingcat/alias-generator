@@ -1,14 +1,11 @@
 import path from 'path';
 
-const config = {
-    target: 'web',
-    output: {
-      path: path.resolve('dist'),
-      filename: 'main.js',
-      library: 'Alias'
-    },
+const commonConfig = {
     mode: 'production',
     entry: './src/index.js',
+    resolve: {
+      extensions: ['.js'],
+    },
     module: {
       rules: [
         {
@@ -17,9 +14,25 @@ const config = {
         },
       ],
     },
-    resolve: {
-      extensions: ['.js'],
-    },
 };
 
-export default config;
+const webConfig = {
+    target: 'web',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'browser.js',
+      library: 'Alias'
+    },
+    ...commonConfig
+};
+const nodeConfig = {
+    target: 'node',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'main.js',
+      library: 'aliasGenerator',
+    },
+    ...commonConfig
+};
+
+export default [webConfig, nodeConfig];

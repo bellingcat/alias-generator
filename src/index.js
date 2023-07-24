@@ -73,3 +73,5 @@ export function getAliases(nameStr) {
   // TODO: shortening tussenvoegsel in Dutch: van der Laan => vd Laan
   return results;
 }
+
+export default getAliases;

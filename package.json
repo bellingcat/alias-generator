@@ -2,11 +2,10 @@
   "name": "@bellingcat/alias-generator",
   "version": "1.0.0",
   "description": "Parse a human name and generate a list of possible variants",
-  "main": "src/index.js",
-  "browser": "dist/main.js",
+  "module": "src/index.js",
   "type": "module",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "test": "node test/index.js",
     "prepublish": "npm run build"
   },
