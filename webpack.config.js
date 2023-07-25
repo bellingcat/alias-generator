@@ -29,8 +29,12 @@ const nodeConfig = {
     target: 'node',
     output: {
       path: path.resolve('dist'),
-      filename: 'main.js',
-      library: 'aliasGenerator',
+      filename: 'main.cjs',
+      globalObject: 'this',
+      library: {
+        name: 'Alias',
+        type: 'umd',
+      },
     },
     ...commonConfig
 };
