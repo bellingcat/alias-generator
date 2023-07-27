@@ -81,3 +81,4 @@ Example: Mike for Michael, Bill for William, Bob for Robert in the West. Katya f
 * https://github.com/berkmancenter/namae (ruby)
 * https://github.com/carltonnorthern/nicknames (python)
 * https://www.nameapi.org/en/demos/name-parser/
+* https://searchgizmos.com/generate-and-search-for-name-variants-with-carls-name-net/

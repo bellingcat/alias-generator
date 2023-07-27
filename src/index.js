@@ -20,14 +20,21 @@ export function getAliases(nameStr) {
   name.middleInitial = getMiddleInitial(name);
   name.firstInitial = getFirstInitial(name);
 
-  let results = [
-    // John Doe
-    [name.firstName, name.lastName].join(' '),
+  let results = [];
 
-    // Doe, John
-    [name.lastName, name.firstName].join(', '),
-  ];
-  if (name.middleName) {
+  if (name.firstName && name.lastName) {
+    results.push(
+      // John Doe
+      [name.firstName, name.lastName].join(' '),
+
+      // Doe, John
+      [name.lastName, name.firstName].join(', '),
+    );
+  } else if (name.firstName || name.lastName) {
+    // Edge case: only one name
+    results.push(name.firstName || name.lastName);
+  }
+  if (name.middleName && name.firstName && name.lastName) {
     results.push(
       // John James Doe
       [name.firstName, name.middleName, name.lastName].join(' '),
@@ -46,9 +53,8 @@ export function getAliases(nameStr) {
     );
   }
 
-  if (name.firstInitial) {
+  if (name.firstInitial && name.lastName) {
     results.push(
-
       // J Doe
       [name.firstInitial, name.lastName].join(' '),
     );
