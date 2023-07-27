@@ -12,7 +12,8 @@
   "author": "Stichting Bellingcat",
   "license": "MIT",
   "dependencies": {
-    "humanparser": "^2.7.0"
+    "humanparser": "^2.7.0",
+    "tussenvoegsels": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
