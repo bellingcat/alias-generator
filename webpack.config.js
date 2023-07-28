@@ -1,6 +1,6 @@
 import path from 'path';
 
-const commonConfig = {
+const config = {
     mode: 'production',
     entry: './src/index.js',
     resolve: {
@@ -14,29 +14,16 @@ const commonConfig = {
         },
       ],
     },
-};
-
-const webConfig = {
-    target: 'web',
-    output: {
-      path: path.resolve('dist'),
-      filename: 'browser.js',
-      library: 'Alias'
-    },
-    ...commonConfig
-};
-const nodeConfig = {
     target: 'node',
     output: {
       path: path.resolve('dist'),
-      filename: 'main.cjs',
+      filename: 'main.js',
       globalObject: 'this',
       library: {
-        name: 'Alias',
+        name: 'aliasGenerator',
         type: 'umd',
       },
-    },
-    ...commonConfig
+    }
 };
 
-export default [webConfig, nodeConfig];
+export default config;

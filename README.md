@@ -14,10 +14,10 @@ console.log(list);
 
 In the browser
 ```
-<script src="node_modules/@bellingcat/alias-generator/dist/browser.js"></script>
+<script src="node_modules/@bellingcat/alias-generator/dist/main.js"></script>
 <script>
 
-  let list = Alias.getAliases("William Randolph Hearst");
+  let list = aliasGenerator.getAliases("William Randolph Hearst");
   console.log(list);
 
 </script>
