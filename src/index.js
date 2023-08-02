@@ -1,3 +1,5 @@
+import nickToName from './nickToName.json';
+import nameToNick from './nameToNick.json';
 import humanparser from 'humanparser';
 import {findPreposition} from 'tussenvoegsels';
 
@@ -6,14 +8,14 @@ const getMiddleInitial = (nameObj) => {
     return null;
   }
 
-  return nameObj.middleName[0].toUpperCase();
+  return nameObj.middleName[0].toLowerCase();
 }
 const getFirstInitial = (nameObj) => {
   if (!nameObj.firstName || typeof nameObj.firstName !== 'string') {
     return null;
   }
 
-  return nameObj.firstName[0].toUpperCase();
+  return nameObj.firstName[0].toLowerCase();
 }
 
 function transpose(name) {
@@ -102,7 +104,7 @@ function dutchVariations(name) {
     let dutch = findPreposition(name.lastName);
 
     if (dutch.preposition) {
-      const tussenvoegsel = dutch.preposition.trim();
+      const tussenvoegsel = dutch.preposition.trim().toLowerCase();
       switch (tussenvoegsel) {
         case 'van der':
         case 'van den':
@@ -120,15 +122,48 @@ function dutchVariations(name) {
   return results;
 }
 
+function getNamesfromNickname(name) {
+  return getAlternateNames(name, nickToName);
+}
+function getNicknamesFromName(name) {
+  return getAlternateNames(name, nameToNick);
+}
+function getAlternateNames(name, nameMap) {
+  // Assume the firstName is a nickname and suggest full names
+  let results = [];
+  const firstName = name.firstName.toLowerCase();
+  if (nameMap[firstName]) {
+    nameMap[firstName].forEach(function(altFirstName) {
+      let copy = { ...name, firstName: altFirstName };
+      let moreNames = commonVariations(copy);
+      Array.prototype.push.apply(results, moreNames);
+    });
+  }
+
+  return results;
+}
+
 export function getAliases(nameStr) {
   let name = humanparser.parseName(nameStr);
   name.middleInitial = getMiddleInitial(name);
   name.firstInitial = getFirstInitial(name);
 
+  for (const namePart in name) {
+    if (name[namePart]) {
+      name[namePart] = name[namePart].toLowerCase();
+    }
+  }
+
   let results = commonVariations(name);
 
   let dutchResults = dutchVariations(name);
   Array.prototype.push.apply(results, dutchResults);
+
+  let nicknames = getNamesfromNickname(name);
+  Array.prototype.push.apply(results, nicknames);
+
+  let fullnames = getNicknamesFromName(name);
+  Array.prototype.push.apply(results, fullnames);
 
   return results;
 }
