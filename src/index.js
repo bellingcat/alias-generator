@@ -165,7 +165,7 @@ export function getAliases(nameStr) {
   let fullnames = getNicknamesFromName(name);
   Array.prototype.push.apply(results, fullnames);
 
-  return results;
+  return [...new Set(results)]; // use Set to remove duplicates
 }
 
 export default getAliases;
