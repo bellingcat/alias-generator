@@ -1,5 +1,5 @@
-import nickToName from './nickToName.json';
-import nameToNick from './nameToNick.json';
+import nickToName from './nickToName.json' assert { type: 'json' };
+import nameToNick from './nameToNick.json' assert { type: 'json' };
 import humanparser from 'humanparser';
 import {findPreposition} from 'tussenvoegsels';
 
