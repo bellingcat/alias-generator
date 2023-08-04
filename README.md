@@ -27,16 +27,16 @@ Output:
 
 ```
 [
-  'William Hearst',
-  'Hearst, William',
-  'William Randolph Hearst',
-  'Hearst, William Randolph',
-  'William R Hearst',
-  'Hearst, William R',
-  'W Hearst',
-  'W Randolph Hearst',
-  'W R Hearst',
-  'WR Hearst'
+  'william hearst',
+  'hearst, william',
+  'william randolph hearst',
+  'hearst, william randolph',
+  'william r hearst',
+  'hearst, william r',
+  'w hearst',
+  'w randolph hearst',
+  'w r hearst',
+  'wr hearst'
 ]
 ```
 
